@@ -2,11 +2,11 @@ import { Controller, Get, Req } from '@nestjs/common';
 import { Request } from 'express';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('/api')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/api')
+  @Get()
   getHello(@Req() req: Request): string {
     return JSON.stringify(req.headers);
   }
