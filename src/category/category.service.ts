@@ -16,8 +16,8 @@ export class CategoryService {
 
   findDatasets(category): Promise<Category> {
     if (!isNaN(category)) {
-      return this.categoryRepository.findOne(category, { relations: ['datasets'] });
+      return this.categoryRepository.findOne(category, { relations: ['datasets', 'valueChain'] });
     }
-    return this.categoryRepository.findOne({ code_name: category }, { relations: ['datasets'] });
+    return this.categoryRepository.findOne({ code_name: category }, { relations: ['datasets', 'valueChain'] });
   }
 }
