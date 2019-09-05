@@ -5,7 +5,7 @@ import { getManager } from 'typeorm';
 export class DatasetContentService {
   async getContent(ref, dataset) {
     const manager = getManager();
-    let queryString = `SELECT "${dataset}"."year", "${dataset}"."value"`;
+    let queryString = `SELECT "${dataset}"."year" as "time", "${dataset}"."value"`;
 
     const relations = {
       area: ['id', 'code', 'name', 'code_name'],
